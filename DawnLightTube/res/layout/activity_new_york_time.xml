@@ -1,0 +1,124 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:draggable_panel="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fl_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/activity_bg_color"
+        android:orientation="vertical" >
+
+        <!-- android:background="@color/activity_bg_color" -->
+
+        <include layout="@layout/common_title_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40.0dip"
+            android:background="#fff3f3f3"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/rl_column"
+                android:layout_width="0dp"
+                android:layout_height="40.0dip"
+                android:layout_weight="1.0" >
+
+                <zang.liguang.tube.wedget.ColumnHorizontalScrollView
+                    android:id="@+id/mColumnHorizontalScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40.0dip"
+                    android:scrollbars="none" >
+
+                    <LinearLayout
+                        android:id="@+id/mRadioGroup_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40.0dip"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10.0dip"
+                        android:paddingRight="10.0dip" />
+                </zang.liguang.tube.wedget.ColumnHorizontalScrollView>
+
+                <ImageView
+                    android:id="@+id/shade_left"
+                    android:layout_width="10.0dip"
+                    android:layout_height="40.0dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/channel_leftblock"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/shade_right"
+                    android:layout_width="10.0dip"
+                    android:layout_height="40.0dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/channel_rightblock"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_more_columns"
+                android:layout_width="wrap_content"
+                android:layout_height="40.0dip" >
+
+                <ImageView
+                    android:id="@+id/button_more_columns"
+                    android:layout_width="40.0dip"
+                    android:layout_height="40.0dip"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/channel_glide_day_bg" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/category_line"
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            android:background="#ffdddddd" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/mViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <RelativeLayout
+                android:id="@+id/toast_conten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- DraggablePanel -->
+
+    <zang.liguang.tube.view.dragpanel.DraggablePanel
+        android:id="@+id/draggable_panel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        draggable_panel:enable_horizontal_alpha_effect="true"
+        draggable_panel:top_fragment_height="@dimen/top_fragment_height"
+        draggable_panel:top_fragment_margin_bottom="@dimen/top_fragment_margin"
+        draggable_panel:top_fragment_margin_right="@dimen/top_fragment_margin"
+        draggable_panel:x_scale_factor="@dimen/x_scale_factor"
+        draggable_panel:y_scale_factor="@dimen/y_scale_factor" />
+
+    
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/myProgressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:indeterminateDuration="700" />
+</FrameLayout>
